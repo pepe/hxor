@@ -1,0 +1,18 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ [[binaryage/devtools "0.9.10"]
+  [lilactown/hx "0.2.1"]
+  [funcool/potok "2.3.0"]]
+
+ :builds
+ {:app
+  {:target     :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+   :modules    {:core {:entries [hxor.core]}}
+   :devtools   {:http-root  "public"
+                :http-port  8280
+                :after-load hxor.core/render}}}}
