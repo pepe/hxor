@@ -24,10 +24,11 @@
       "make HXOR " k])])
 
 (hx/defnc Counting [{:keys [count store]}]
-  [:div
-   [:label "HXOR must count to: "
-    [:input {:value count
-             :on-change #(ptk/emit! store (events/->SetCount (-> % .-target .-value js/Number.parseInt)))}]]
+  [:<>
+   [:div
+    [:label "HXOR must count to: "
+     [:input {:value count
+              :on-change #(ptk/emit! store (events/->SetCount (-> % .-target .-value js/Number.parseInt)))}]]]
    [:div (map (fn [i] [:span {:key (str i)} i " "]) (range 1 (inc count)))]])
 
 (hx/defnc Main [{:keys [count store kind]}]
