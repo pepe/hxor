@@ -4,8 +4,9 @@
 
  :dependencies
  [[binaryage/devtools "0.9.10"]
-  [lilactown/hx "0.2.1"]
-  [funcool/potok "2.3.0"]]
+  [lilactown/hx "0.3.0"]
+  [funcool/potok "2.3.0"]
+  [cider/cider-nrepl  "0.20.0"]]
 
  :builds
  {:app

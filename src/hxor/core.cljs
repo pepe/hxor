@@ -1,23 +1,17 @@
 (ns hxor.core
-  (:require [hx.react :as hx :include-macros true]
-            [hx.hiccup :as hiccup]
+  (:require [hx.react :as hx]
             [beicon.core :as rxt]
-            ["react-dom" :as react-dom]
+            ["react-dom" :as dom]
             [hxor.components :as comps]
             [hxor.store :as store]))
 
 (defonce store (store/init))
 
-(defonce state (rxt/to-atom store))
-
 (defn render []
-  (react-dom/render
-   (hiccup/parse [comps/Page {:store store}])
+  (dom/render
+   (hx/f [comps/Page {:store store}])
    (. js/document getElementById "container")))
 
 
 (defn init []
-  (add-watch state :state
-             (fn [_key _ref old-value new-value]
-               (render)))
   (render))
